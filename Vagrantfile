@@ -5,12 +5,15 @@ require 'yaml'
 
 VAGRANTFILE_API_VERSION = "2"
 
+# load config yaml
 vm = {}
 vm['config'] = YAML.load_file('config.vm.yml')
 
-vm['config']['machines'].each do |machine|
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-	Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+	# config virtual machine
+	vm['config']['machines'].each do |machine|
+
 		config.vm.define machine['name'] do |node|
 
 			node.vm.box = machine['box']
