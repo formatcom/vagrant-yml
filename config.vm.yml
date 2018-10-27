@@ -1,0 +1,8 @@
+machines:
+  - name: "vm1"
+    box:  "centos/7"
+    ip:   "172.28.128.101"
+
+  - name: "vm2"
+    box:  "centos/7"
+    ip:   "127.28.128.102"
